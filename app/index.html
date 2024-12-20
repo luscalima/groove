@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Lyrics</title>
+
+    <link rel="stylesheet" href="assets/index.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="index.ts" defer type="module"></script>
+  </head>
+  <body class="bg-zinc-950">
+    <div id="app" class="flex flex-col w-full h-screen select-none">
+      <div class="flex-1 flex min-h-0">
+        <div class="flex w-80 p-4">
+          <div class="w-full rounded text-white">
+            <div class="mb-4">
+              <h2 class="text-lg">Songs</h2>
+            </div>
+            <ul data-c-songs class="flex flex-col gap-1 max-w-full">
+              <!-- <li class="flex items-center gap-2 p-1 rounded hover:bg-gray-700">
+                <div>
+                  <img
+                    src="https://m.media-amazon.com/images/I/41Bh8FV4bxL._UXNaN_FMjpg_QL85_.jpg"
+                    alt="Florence + The Machine"
+                    class="w-12 h-12 rounded"
+                  />
+                </div>
+                <div>
+                  <h1 class="font-semibold">Stand By Me</h1>
+                  <h2 class="text-xs">Florence + The Machine</h2>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="flex-1 flex justify-center overflow-y-auto">
+          <ul
+            data-c-lyric
+            class="flex flex-col gap-3 min-h-fit p-4 md:px-0 md:py-16 text-3xl font-semibold"
+          ></ul>
+        </div>
+      </div>
+      <!-- TODO: refazer estilo -->
+      <!-- https://dribbble.com/shots/23483389-Music-Player-Web-App -->
+      <!-- https://dribbble.com/shots/22609023-Music-Streaming-Web-Dashboard -->
+      <footer class="grid grid-cols-5 py-4 bg-white/5 text-white">
+        <div class="col-span-1 pl-4" data-c-song>
+          <div
+            class="flex justify-center items-center w-14 h-14 bg-zinc-700 rounded"
+          >
+            <i class="ph-fill ph-music-notes text-zinc-800 text-3xl"></i>
+          </div>
+          <!-- <div class="flex items-center gap-2 px-4">
+            <div>
+              <img
+                src="https://m.media-amazon.com/images/I/41Bh8FV4bxL._UXNaN_FMjpg_QL85_.jpg"
+                alt="Florence + The Machine"
+                class="w-14 h-14 rounded"
+              />
+            </div>
+            <div>
+              <h1 class="font-semibold">Stand By Me</h1>
+              <h2 class="text-xs">Florence + The Machine</h2>
+            </div>
+          </div> -->
+        </div>
+        <div class="flex items-center gap-4 col-span-3">
+          <div class="flex items-center gap-4">
+            <button id="control-prev">
+              <i class="ph-fill ph-skip-back"></i>
+            </button>
+            <button
+              data-c-play
+              class="flex justify-center items-center w-12 h-12 rounded-full text-white bg-black/10 border border-zinc-800"
+            >
+              <i class="ph-fill ph-play"></i>
+            </button>
+            <button id="control-next">
+              <i class="ph-fill ph-skip-forward"></i>
+            </button>
+            <button id="control-next">
+              <i class="ph-fill ph-heart"></i>
+            </button>
+          </div>
+          <audio data-c-audio type="audio/mpeg"></audio>
+          <div class="flex-1 flex gap-4 ml-8 items-center">
+            <div
+              data-c-progress-container
+              class="group flex-1 relative h-1 rounded-lg bg-white/10"
+            >
+              <div
+                data-c-progress-bar
+                class="grow-0 relative h-full bg-zinc-50 rounded-lg"
+                style="width: 0%"
+              >
+                <span
+                  data-c-progress-thumb
+                  class="absolute cursor-pointer hidden group-hover:block top-1/2 right-0 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white shadow shadow-zinc-500"
+                ></span>
+              </div>
+            </div>
+            <div class="w-20 -ml-4 text-xs text-center">
+              <span data-c-current-time> -:-- </span>
+              /
+              <span data-c-duration> -:-- </span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 col-span-1">
+          <div class="flex-1 flex gap-4 items-center px-4">
+            <button data-c-volume-button class="-mr-2">
+              <i class="ph ph-speaker-simple-high"></i>
+            </button>
+            <div
+              data-c-volume-container
+              class="group flex-1 relative h-1 mr-8 rounded-lg bg-white/10"
+            >
+              <div
+                data-c-volume-bar
+                class="grow-0 relative h-full bg-zinc-50 rounded-lg"
+                style="width: 0%"
+              >
+                <span
+                  data-c-volume-thumb
+                  class="absolute cursor-pointer hidden group-hover:block focus:block top-1/2 right-0 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white shadow shadow-zinc-500"
+                ></span>
+              </div>
+            </div>
+            <button id="control-shuffle">
+              <i class="ph ph-shuffle"></i>
+            </button>
+            <button id="control-repeat">
+              <i class="ph ph-repeat"></i>
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
